@@ -1,0 +1,8 @@
+﻿validacao,status
+IDs de venda sem duplicidade,OK
+Colunas obrigatórias sem valores vazios,OK
+Produtos existentes na dimensão,OK
+Canais existentes na dimensão,OK
+Regiões existentes na dimensão,OK
+Datas dentro do período esperado,OK
+Cálculo da margem bruta,OK
