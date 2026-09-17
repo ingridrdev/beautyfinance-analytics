@@ -1,0 +1,16 @@
+﻿id_produto,nome_produto,marca,categoria,preco_sugerido,custo_base,data_lancamento,status_produto
+1,Gel de Limpeza Facial,Lumera,Cuidados com a Pele,69.9,24.5,2023-02-15,Ativo
+2,Sérum de Vitamina C,Lumera,Cuidados com a Pele,119.9,42.0,2023-05-10,Ativo
+3,Água Micelar,Lumera,Cuidados com a Pele,54.9,18.5,2023-08-20,Ativo
+4,Hidratante Facial,VittaDerm,Cuidados com a Pele,89.9,31.0,2023-03-12,Ativo
+5,Protetor Solar FPS 60,VittaDerm,Proteção Solar,99.9,38.0,2023-09-05,Ativo
+6,Protetor Solar Corporal,VittaDerm,Proteção Solar,79.9,30.0,2024-01-15,Ativo
+7,Shampoo Reparador,Capillare,Cuidados com o Cabelo,49.9,17.0,2023-04-08,Ativo
+8,Condicionador Nutritivo,Capillare,Cuidados com o Cabelo,52.9,18.5,2023-04-08,Ativo
+9,Máscara Capilar,Capillare,Cuidados com o Cabelo,74.9,27.0,2023-06-18,Ativo
+10,Óleo Capilar,Capillare,Cuidados com o Cabelo,64.9,22.0,2024-02-10,Ativo
+11,Batom Matte,BellaVie,Maquiagem,44.9,12.5,2023-07-25,Ativo
+12,Base Líquida,BellaVie,Maquiagem,84.9,26.5,2023-10-01,Ativo
+13,Máscara de Cílios,BellaVie,Maquiagem,59.9,19.0,2024-03-15,Ativo
+14,Sabonete Corporal,Essenza,Higiene Pessoal,29.9,9.5,2023-01-20,Ativo
+15,Hidratante Corporal,Essenza,Higiene Pessoal,59.9,21.0,2023-01-20,Ativo
