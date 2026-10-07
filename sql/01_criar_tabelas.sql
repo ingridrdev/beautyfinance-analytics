@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS public.dim_calendario (
     dia INTEGER NOT NULL,
     mes_numero INTEGER NOT NULL,
     mes_nome TEXT NOT NULL,
-    trimestre INTEGER NOT NULL,
+    trimestre TEXT NOT NULL,
     ano INTEGER NOT NULL,
     ano_mes TEXT NOT NULL
 );
