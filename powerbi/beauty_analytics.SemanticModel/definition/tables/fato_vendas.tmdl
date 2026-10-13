@@ -1,0 +1,129 @@
+table fato_vendas
+	lineageTag: 66dc6a46-0690-434b-bb67-61b902641fa9
+
+	column id_venda
+		dataType: int64
+		formatString: 0
+		lineageTag: 34e42718-6568-43c9-ad78-d6670b12681b
+		summarizeBy: none
+		sourceColumn: id_venda
+
+	column id_pedido
+		dataType: int64
+		formatString: 0
+		lineageTag: 39978b8d-3555-47a5-a417-315175c6c1e1
+		summarizeBy: none
+		sourceColumn: id_pedido
+
+	column data_venda
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f817c833-02ce-4a3a-bde8-29721c6dfd4a
+		summarizeBy: none
+		sourceColumn: data_venda
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column id_produto
+		dataType: int64
+		formatString: 0
+		lineageTag: d85184e1-4923-4805-ad0d-787507ef86ea
+		summarizeBy: none
+		sourceColumn: id_produto
+
+	column id_canal
+		dataType: int64
+		formatString: 0
+		lineageTag: a28cbb66-e02a-4d6c-9511-1066b5a3d834
+		summarizeBy: none
+		sourceColumn: id_canal
+
+	column id_regiao
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a8a4573-8b37-44d2-9a8f-eeb916b99d0e
+		summarizeBy: none
+		sourceColumn: id_regiao
+
+	column quantidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 93d47c30-e206-4e81-bcc9-316266c51fa1
+		summarizeBy: sum
+		sourceColumn: quantidade
+
+	column preco_unitario
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: adec8011-1b5c-4360-a40f-346888dcc624
+		summarizeBy: sum
+		sourceColumn: preco_unitario
+
+	column custo_unitario
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 4f879677-b469-4381-b584-15a4b12215f5
+		summarizeBy: sum
+		sourceColumn: custo_unitario
+
+	column desconto_percentual
+		dataType: decimal
+		formatString: 0.00%
+		lineageTag: 8b6f734d-24d8-489b-b689-fb978d1f4313
+		summarizeBy: none
+		sourceColumn: desconto_percentual
+
+	column receita_bruta
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 6a44de29-5cc6-4c23-b0ea-cd9d885c03db
+		summarizeBy: sum
+		sourceColumn: receita_bruta
+
+	column valor_desconto
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: d241f72e-a53f-416e-a07b-485adaa707fa
+		summarizeBy: sum
+		sourceColumn: valor_desconto
+
+	column receita_liquida
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 6936d759-40ff-4a62-be17-6154563dbbef
+		summarizeBy: sum
+		sourceColumn: receita_liquida
+
+	column custo_total
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 67965609-df96-40a0-ae5d-79cd4cc82011
+		summarizeBy: sum
+		sourceColumn: custo_total
+
+	column margem_bruta
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: ce614b4d-0582-470c-b482-c820e4d4fac1
+		summarizeBy: sum
+		sourceColumn: margem_bruta
+
+	column margem_percentual
+		dataType: decimal
+		formatString: 0.00%
+		lineageTag: a46852d0-ea93-4426-8b18-ffef952dc93c
+		summarizeBy: none
+		sourceColumn: margem_percentual
+
+	partition fato_vendas = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="fato_vendas"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"id_venda", Int64.Type}, {"id_pedido", Int64.Type}, {"data_venda", type date}, {"id_produto", Int64.Type}, {"id_canal", Int64.Type}, {"id_regiao", Int64.Type}, {"quantidade", Int64.Type}, {"preco_unitario", Currency.Type}, {"custo_unitario", Currency.Type}, {"desconto_percentual", Currency.Type}, {"receita_bruta", Currency.Type}, {"valor_desconto", Currency.Type}, {"receita_liquida", Currency.Type}, {"custo_total", Currency.Type}, {"margem_bruta", Currency.Type}, {"margem_percentual", Currency.Type}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,69 @@
+table dim_produtos
+	lineageTag: feaca669-bc97-4af9-87c2-cab86eab9a21
+
+	column id_produto
+		dataType: int64
+		formatString: 0
+		lineageTag: 67f1d529-364e-45f0-b8ff-fd032fef886b
+		summarizeBy: none
+		sourceColumn: id_produto
+
+	column nome_produto
+		dataType: string
+		lineageTag: 46182cb4-4b01-4666-b4bd-b0d53a633cfc
+		summarizeBy: none
+		sourceColumn: nome_produto
+
+	column marca
+		dataType: string
+		lineageTag: 34883834-fd27-426d-b0f0-1332ceadeb01
+		summarizeBy: none
+		sourceColumn: marca
+
+	column categoria
+		dataType: string
+		lineageTag: 2085a06f-eb64-4e29-9731-743d38ab1aec
+		summarizeBy: none
+		sourceColumn: categoria
+
+	column preco_sugerido
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: e51bdd7c-e764-409d-9973-b9dafed175ae
+		summarizeBy: sum
+		sourceColumn: preco_sugerido
+
+	column custo_base
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: cc4d9e1e-f6a8-4361-8845-0507daa04f41
+		summarizeBy: sum
+		sourceColumn: custo_base
+
+	column data_lancamento
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ed146db6-b0ca-4eb2-8eb4-6d246b3db3d5
+		summarizeBy: none
+		sourceColumn: data_lancamento
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status_produto
+		dataType: string
+		lineageTag: d57246c5-4ed7-4808-8cf2-8e4dee707eb3
+		summarizeBy: none
+		sourceColumn: status_produto
+
+	partition dim_produtos = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="dim_produtos"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"id_produto", Int64.Type}, {"nome_produto", type text}, {"marca", type text}, {"categoria", type text}, {"preco_sugerido", Currency.Type}, {"custo_base", Currency.Type}, {"data_lancamento", type date}, {"status_produto", type text}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

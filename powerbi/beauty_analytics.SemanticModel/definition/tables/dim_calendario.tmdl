@@ -1,0 +1,63 @@
+table dim_calendario
+	lineageTag: 78f8ad7a-a5a5-4c99-a562-b7a7fc718934
+
+	column data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 2c4cdab6-0f8c-4f92-889d-9c6334059869
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dia
+		dataType: int64
+		formatString: 0
+		lineageTag: 3eb6e9b4-8f62-4055-85f3-e511e68f5fa8
+		summarizeBy: none
+		sourceColumn: dia
+
+	column mes_numero
+		dataType: int64
+		formatString: 0
+		lineageTag: f805ff56-bc05-4a57-b342-281d90258ea2
+		summarizeBy: none
+		sourceColumn: mes_numero
+
+	column mes_nome
+		dataType: string
+		lineageTag: 7fbf4fd6-01a3-4333-9f6d-3fcf1df54c50
+		summarizeBy: none
+		sourceColumn: mes_nome
+
+	column trimestre
+		dataType: string
+		lineageTag: de5e81e3-ef61-4375-944e-f33e63837768
+		summarizeBy: none
+		sourceColumn: trimestre
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 27ec0a7c-2b73-4451-8fe5-bd58704f062c
+		summarizeBy: none
+		sourceColumn: ano
+
+	column ano_mes
+		dataType: string
+		lineageTag: 6c7d4d9d-8d59-4055-a471-e9fe3e7b50d2
+		summarizeBy: none
+		sourceColumn: ano_mes
+
+	partition dim_calendario = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="dim_calendario"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"data", type date}, {"dia", Int64.Type}, {"mes_numero", Int64.Type}, {"mes_nome", type text}, {"trimestre", type text}, {"ano", Int64.Type}, {"ano_mes", type text}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

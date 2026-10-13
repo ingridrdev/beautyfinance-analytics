@@ -1,0 +1,28 @@
+table dim_regioes
+	lineageTag: f1e533fa-5bb8-4e96-95d5-e4942e24d71d
+
+	column id_regiao
+		dataType: int64
+		formatString: 0
+		lineageTag: d101478e-3334-4f19-88c7-9caf59427acd
+		summarizeBy: none
+		sourceColumn: id_regiao
+
+	column nome_regiao
+		dataType: string
+		lineageTag: 3df4ccde-0cb6-46e7-8c65-8706ae8bd9a8
+		summarizeBy: none
+		sourceColumn: nome_regiao
+
+	partition dim_regioes = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="dim_regioes"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"id_regiao", Int64.Type}, {"nome_regiao", type text}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

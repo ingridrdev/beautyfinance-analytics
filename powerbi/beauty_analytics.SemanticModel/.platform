@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "beauty_analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "40233d49-a531-4d96-bd8c-0ad57942bb11"
+  }
+}

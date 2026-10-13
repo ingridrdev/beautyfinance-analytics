@@ -1,0 +1,28 @@
+table dim_canais
+	lineageTag: da81a15d-3718-4345-96be-2d65479ac5c1
+
+	column id_canal
+		dataType: int64
+		formatString: 0
+		lineageTag: a68ed581-f3ad-4eda-9f44-f41738620dcb
+		summarizeBy: none
+		sourceColumn: id_canal
+
+	column nome_canal
+		dataType: string
+		lineageTag: 43b17241-dd64-434a-b902-4ce741a5b56b
+		summarizeBy: none
+		sourceColumn: nome_canal
+
+	partition dim_canais = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="dim_canais"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"id_canal", Int64.Type}, {"nome_canal", type text}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

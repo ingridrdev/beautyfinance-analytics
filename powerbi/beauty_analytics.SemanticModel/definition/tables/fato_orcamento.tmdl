@@ -1,0 +1,80 @@
+table fato_orcamento
+	lineageTag: 51681eca-6b43-4436-8f33-389c3ef3a6cc
+
+	column id_orcamento
+		dataType: int64
+		formatString: 0
+		lineageTag: 72b08eb3-f429-45fe-9c17-b60d28334e13
+		summarizeBy: none
+		sourceColumn: id_orcamento
+
+	column mes_referencia
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c20a8302-1979-4889-8c1c-12550ac2df5b
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column id_produto
+		dataType: int64
+		formatString: 0
+		lineageTag: dd01b98a-0a4c-483b-801c-90d6397b5557
+		summarizeBy: none
+		sourceColumn: id_produto
+
+	column id_canal
+		dataType: int64
+		formatString: 0
+		lineageTag: 0485e905-de77-424e-9d94-83eb494d39aa
+		summarizeBy: none
+		sourceColumn: id_canal
+
+	column id_regiao
+		dataType: int64
+		formatString: 0
+		lineageTag: f2a9f061-b215-4389-8e8b-1417beba28d2
+		summarizeBy: none
+		sourceColumn: id_regiao
+
+	column quantidade_orcada
+		dataType: int64
+		formatString: 0
+		lineageTag: 7cab4035-f6a6-44c5-a32b-16a0d5377a93
+		summarizeBy: sum
+		sourceColumn: quantidade_orcada
+
+	column receita_orcada
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 8f2dcae4-5560-4ddf-9396-fdfc982193fd
+		summarizeBy: sum
+		sourceColumn: receita_orcada
+
+	column custo_orcado
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 0bf37f02-56db-41f5-bbe3-f98217151e13
+		summarizeBy: sum
+		sourceColumn: custo_orcado
+
+	column margem_orcada
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 7b14bae8-b0ea-4709-868d-21faaea6e77f
+		summarizeBy: sum
+		sourceColumn: margem_orcada
+
+	partition fato_orcamento = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="fato_orcamento"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"id_orcamento", Int64.Type}, {"mes_referencia", type date}, {"id_produto", Int64.Type}, {"id_canal", Int64.Type}, {"id_regiao", Int64.Type}, {"quantidade_orcada", Int64.Type}, {"receita_orcada", Currency.Type}, {"custo_orcado", Currency.Type}, {"margem_orcada", Currency.Type}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

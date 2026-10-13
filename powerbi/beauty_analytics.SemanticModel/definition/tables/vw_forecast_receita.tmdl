@@ -1,0 +1,75 @@
+table vw_forecast_receita
+	lineageTag: 9f96a7f6-6167-4a95-bb91-bceb7bd040cb
+
+	column ano_mes_forecast
+		dataType: string
+		lineageTag: e7995fed-1bef-4242-9b2c-e28406d3c974
+		summarizeBy: none
+		sourceColumn: ano_mes_forecast
+
+	column receita_base_2025
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: ce2841fa-0c46-445e-a632-b10c850b8163
+		summarizeBy: sum
+		sourceColumn: receita_base_2025
+
+	column crescimento_jan_ago_percentual
+		dataType: decimal
+		formatString: 0.00
+		lineageTag: 0c6d5f4c-8e66-457d-9812-cbd848331d69
+		summarizeBy: none
+		sourceColumn: crescimento_jan_ago_percentual
+
+	column receita_forecast
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: eccfd483-c8c0-4608-9532-9b82d7cff779
+		summarizeBy: sum
+		sourceColumn: receita_forecast
+
+	column status_forecast
+		dataType: string
+		lineageTag: 7aa46db8-6950-47f7-a24f-ddb60b46f78d
+		summarizeBy: none
+		sourceColumn: status_forecast
+
+	column receita_orcada
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: 5c48c0e9-e2d3-4409-ab99-3d9aad49f16c
+		summarizeBy: sum
+		sourceColumn: receita_orcada
+
+	column variacao_forecast_orcamento
+		dataType: decimal
+		formatString: #,0.00
+		lineageTag: a80a76f5-c8ae-45e5-95b7-02b920242b5c
+		summarizeBy: sum
+		sourceColumn: variacao_forecast_orcamento
+
+	column variacao_forecast_orcamento_percentual
+		dataType: decimal
+		formatString: 0.00
+		lineageTag: c69c2b80-4260-499b-a87d-5cbe3f9998c5
+		summarizeBy: none
+		sourceColumn: variacao_forecast_orcamento_percentual
+
+	column status_comparacao
+		dataType: string
+		lineageTag: 9812129d-f865-4fc3-b59b-f69eb52555d6
+		summarizeBy: none
+		sourceColumn: status_comparacao
+
+	partition vw_forecast_receita = m
+		mode: import
+		source =
+				let
+				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
+				    Dados = Origem{[Schema="public", Item="vw_forecast_receita"]}[Data],
+				    Tipos = Table.TransformColumnTypes(Dados, {{"ano_mes_forecast", type text}, {"receita_base_2025", Currency.Type}, {"crescimento_jan_ago_percentual", Currency.Type}, {"receita_forecast", Currency.Type}, {"status_forecast", type text}, {"receita_orcada", Currency.Type}, {"variacao_forecast_orcamento", Currency.Type}, {"variacao_forecast_orcamento_percentual", Currency.Type}, {"status_comparacao", type text}})
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

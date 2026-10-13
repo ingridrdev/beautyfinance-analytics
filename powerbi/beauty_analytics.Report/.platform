@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "beauty_analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3e550b37-54fa-4931-ae7a-e3869be1b278"
+  }
+}
