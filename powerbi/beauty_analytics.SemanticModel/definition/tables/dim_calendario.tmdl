@@ -1,8 +1,10 @@
 table dim_calendario
 	lineageTag: 78f8ad7a-a5a5-4c99-a562-b7a7fc718934
+	dataCategory: Time
 
 	column data
 		dataType: dateTime
+		isKey
 		formatString: Short Date
 		lineageTag: 2c4cdab6-0f8c-4f92-889d-9c6334059869
 		summarizeBy: none
@@ -29,6 +31,7 @@ table dim_calendario
 		lineageTag: 7fbf4fd6-01a3-4333-9f6d-3fcf1df54c50
 		summarizeBy: none
 		sourceColumn: mes_nome
+		sortByColumn: mes_numero
 
 	column trimestre
 		dataType: string

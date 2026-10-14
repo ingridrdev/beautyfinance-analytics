@@ -1,0 +1,22 @@
+// Execute na Exibição de consulta DAX após atualizar o projeto.
+// Não cria medidas nem altera dados.
+EVALUATE
+ROW(
+    "Datas", COUNTROWS(dim_calendario),
+    "Datas distintas", DISTINCTCOUNT(dim_calendario[data]),
+    "Datas vazias", COUNTROWS(FILTER(dim_calendario, ISBLANK(dim_calendario[data]))),
+    "Primeira data", MIN(dim_calendario[data]),
+    "Última data", MAX(dim_calendario[data]),
+    "Dias ausentes", DATEDIFF(MIN(dim_calendario[data]), MAX(dim_calendario[data]), DAY) + 1 - COUNTROWS(dim_calendario),
+    "Meses", DISTINCTCOUNT(dim_calendario[ano_mes]),
+    "Dia bissexto 2024", COUNTROWS(FILTER(dim_calendario, dim_calendario[data] = DATE(2024, 2, 29))),
+    "Receita agosto 2026", CALCULATE(SUM(fato_vendas[receita_liquida]), dim_calendario[ano_mes] = "2026-08"),
+    "Receita mês anterior", CALCULATE(
+        CALCULATE(SUM(fato_vendas[receita_liquida]), DATEADD(dim_calendario[data], -1, MONTH)),
+        dim_calendario[ano_mes] = "2026-08"
+    ),
+    "Receita mesmo mês ano anterior", CALCULATE(
+        CALCULATE(SUM(fato_vendas[receita_liquida]), DATEADD(dim_calendario[data], -1, YEAR)),
+        dim_calendario[ano_mes] = "2026-08"
+    )
+)
