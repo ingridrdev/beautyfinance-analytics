@@ -66,7 +66,24 @@ Quem dá continuidade pode usar apenas comandos Git de consulta, como
 
 Não executar `git add`, `git commit`, `git push`, `git pull`, criar branches
 ou Pull Requests, alterar configurações do Git ou desfazer alterações.
-Os comandos de registro são fornecidos para a usuária executar manualmente.
+A usuária fará os registros manualmente, preferindo a interface
+**Source Control (Controle do Código-Fonte) do VS Code**, em vez do terminal.
+As mensagens dos novos commits devem ser **em inglês**; as explicações e
+a documentação continuam em português. Não reescrever commits antigos
+apenas para traduzir suas mensagens.
+
+Fluxo preferido na interface:
+
+1. Abrir Source Control e clicar no arquivo para revisar as diferenças.
+2. Clicar no **+** somente nos arquivos da tarefa para prepará-los.
+3. Conferir a lista **Staged Changes** (Alterações Preparadas).
+4. Digitar a mensagem de commit em inglês e clicar em **Commit**.
+5. No menu **...**, escolher **Push** para enviar os commits.
+
+Evitar **Stage All** quando existirem alterações de outras tarefas.
+Preferir **Push** a **Sync Changes**: a sincronização pode também buscar
+e incorporar mudanças remotas. Se houver erro, conferir a mensagem antes
+de escolher outra ação.
 
 Não adicionar assinaturas automáticas, `Co-authored-by` ou comentários
 de autoria automática. Nunca incluir senhas, chaves ou credenciais nos
@@ -375,6 +392,8 @@ Texto que a usuária pode enviar:
 > Continue do ponto registrado, sem refazer etapas concluídas. Trabalhe
 > em uma tarefa por vez, explique em português simples e valide resultados.
 > Use somente comandos Git de consulta; eu farei add, commit e push.
+> Oriente os registros pela interface Source Control do VS Code e sugira
+> mensagens de commit em inglês, mantendo as explicações em português.
 
 Ao concluir cada etapa, atualizar este documento na tarefa autorizada
 ou propor sua atualização, registrando o que foi comprovado, o que ainda
