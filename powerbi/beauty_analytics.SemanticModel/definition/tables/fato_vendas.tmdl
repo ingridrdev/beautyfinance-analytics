@@ -1,6 +1,26 @@
 table fato_vendas
 	lineageTag: 66dc6a46-0690-434b-bb67-61b902641fa9
 
+	/// Receita das vendas após os descontos, respeitando os filtros.
+	measure 'Receita Líquida' = SUM(fato_vendas[receita_liquida])
+		formatString: R$ #,0.00
+		displayFolder: Indicadores financeiros
+
+	/// Custo dos produtos vendidos, respeitando os filtros.
+	measure 'Custo Total' = SUM(fato_vendas[custo_total])
+		formatString: R$ #,0.00
+		displayFolder: Indicadores financeiros
+
+	/// Receita líquida menos custo total; não inclui outras despesas.
+	measure 'Margem Bruta' = [Receita Líquida] - [Custo Total]
+		formatString: R$ #,0.00
+		displayFolder: Indicadores financeiros
+
+	/// Margem dos totais, sem média simples dos percentuais das linhas.
+	measure 'Margem Percentual' = DIVIDE([Margem Bruta], [Receita Líquida])
+		formatString: 0.00%
+		displayFolder: Indicadores financeiros
+
 	column id_venda
 		dataType: int64
 		formatString: 0

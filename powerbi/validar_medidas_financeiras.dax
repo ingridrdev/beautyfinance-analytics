@@ -1,0 +1,43 @@
+// Consulta de validação: usa as quatro medidas permanentes do modelo.
+// Não cria medidas nem altera os dados.
+EVALUATE
+UNION(
+    ROW(
+        "Cenário", "Total realizado",
+        "Receita líquida", [Receita Líquida],
+        "Custo total", [Custo Total],
+        "Margem bruta", [Margem Bruta],
+        "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+    ),
+    CALCULATETABLE(
+        ROW(
+            "Cenário", "Canal 1",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+        ),
+        dim_canais[id_canal] = 1
+    ),
+    CALCULATETABLE(
+        ROW(
+            "Cenário", "Agosto 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+        ),
+        dim_calendario[ano_mes] = "2026-08"
+    ),
+    CALCULATETABLE(
+        ROW(
+            "Cenário", "Setembro 2026 sem realizado",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+        ),
+        dim_calendario[ano_mes] = "2026-09"
+    )
+)
+ORDER BY [Cenário]
