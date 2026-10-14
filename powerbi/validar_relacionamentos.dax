@@ -1,0 +1,19 @@
+// Execute na Exibição de consulta DAX após atualizar o projeto.
+// Não cria medidas nem altera os dados.
+// Compara os filtros das dimensões com as referências locais.
+EVALUATE
+ROW(
+    "Linhas de vendas", COUNTROWS(fato_vendas),
+    "Linhas de orçamento", COUNTROWS(fato_orcamento),
+    "Linhas de forecast", COUNTROWS(vw_forecast_receita),
+    "Receita total", SUM(fato_vendas[receita_liquida]),
+    "Receita produto 1", CALCULATE(SUM(fato_vendas[receita_liquida]), dim_produtos[id_produto] = 1),
+    "Orçamento produto 1", CALCULATE(SUM(fato_orcamento[receita_orcada]), dim_produtos[id_produto] = 1),
+    "Receita canal 1", CALCULATE(SUM(fato_vendas[receita_liquida]), dim_canais[id_canal] = 1),
+    "Orçamento canal 1", CALCULATE(SUM(fato_orcamento[receita_orcada]), dim_canais[id_canal] = 1),
+    "Receita região 1", CALCULATE(SUM(fato_vendas[receita_liquida]), dim_regioes[id_regiao] = 1),
+    "Orçamento região 1", CALCULATE(SUM(fato_orcamento[receita_orcada]), dim_regioes[id_regiao] = 1),
+    "Receita agosto 2026", CALCULATE(SUM(fato_vendas[receita_liquida]), dim_calendario[ano_mes] = "2026-08"),
+    "Orçamento agosto 2026", CALCULATE(SUM(fato_orcamento[receita_orcada]), dim_calendario[ano_mes] = "2026-08"),
+    "Forecast setembro 2026", CALCULATE(SUM(vw_forecast_receita[receita_forecast]), dim_calendario[ano_mes] = "2026-09")
+)

@@ -61,15 +61,25 @@ table vw_forecast_receita
 		summarizeBy: none
 		sourceColumn: status_comparacao
 
+	column mes_referencia
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0f52d206-73d1-4e1f-a899-2697ad3f0001
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition vw_forecast_receita = m
 		mode: import
 		source =
 				let
 				    Origem = PostgreSQL.Database("aws-0-us-west-2.pooler.supabase.com:5432", "postgres", [CreateNavigationProperties=false]),
 				    Dados = Origem{[Schema="public", Item="vw_forecast_receita"]}[Data],
-				    Tipos = Table.TransformColumnTypes(Dados, {{"ano_mes_forecast", type text}, {"receita_base_2025", Currency.Type}, {"crescimento_jan_ago_percentual", Currency.Type}, {"receita_forecast", Currency.Type}, {"status_forecast", type text}, {"receita_orcada", Currency.Type}, {"variacao_forecast_orcamento", Currency.Type}, {"variacao_forecast_orcamento_percentual", Currency.Type}, {"status_comparacao", type text}})
+				    Tipos = Table.TransformColumnTypes(Dados, {{"ano_mes_forecast", type text}, {"receita_base_2025", Currency.Type}, {"crescimento_jan_ago_percentual", Currency.Type}, {"receita_forecast", Currency.Type}, {"status_forecast", type text}, {"receita_orcada", Currency.Type}, {"variacao_forecast_orcamento", Currency.Type}, {"variacao_forecast_orcamento_percentual", Currency.Type}, {"status_comparacao", type text}}),
+				    ComData = Table.AddColumn(Tipos, "mes_referencia", each Date.FromText([ano_mes_forecast] & "-01", [Format="yyyy-MM-dd", Culture="en-US"]), type date)
 				in
-				    Tipos
+				    ComData
 
 	annotation PBI_ResultType = Table
 

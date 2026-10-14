@@ -1,0 +1,36 @@
+relationship vendas_produtos
+	fromColumn: fato_vendas.id_produto
+	toColumn: dim_produtos.id_produto
+
+relationship vendas_canais
+	fromColumn: fato_vendas.id_canal
+	toColumn: dim_canais.id_canal
+
+relationship vendas_regioes
+	fromColumn: fato_vendas.id_regiao
+	toColumn: dim_regioes.id_regiao
+
+relationship vendas_calendario
+	fromColumn: fato_vendas.data_venda
+	toColumn: dim_calendario.data
+
+relationship orcamento_produtos
+	fromColumn: fato_orcamento.id_produto
+	toColumn: dim_produtos.id_produto
+
+relationship orcamento_canais
+	fromColumn: fato_orcamento.id_canal
+	toColumn: dim_canais.id_canal
+
+relationship orcamento_regioes
+	fromColumn: fato_orcamento.id_regiao
+	toColumn: dim_regioes.id_regiao
+
+relationship orcamento_calendario
+	fromColumn: fato_orcamento.mes_referencia
+	toColumn: dim_calendario.data
+
+relationship forecast_calendario
+	fromColumn: vw_forecast_receita.mes_referencia
+	toColumn: dim_calendario.data
+
