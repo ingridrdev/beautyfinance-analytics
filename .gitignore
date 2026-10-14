@@ -6,3 +6,6 @@ __pycache__/
 # Cache e configurações locais do Power BI
 **/.pbi/cache.abf
 **/.pbi/localSettings.json
+
+# Documento local de continuidade do projeto
+/docs/continuidade_projeto.md
