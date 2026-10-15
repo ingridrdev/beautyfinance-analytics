@@ -43,6 +43,43 @@ table fato_vendas
 		displayFolder: Indicadores comerciais
 		lineageTag: 9836d782-8429-40b2-8f2c-cfd984b0d3ef
 
+	/// Receita do mês anterior para um único mês completo com realizado.
+	measure 'Receita Mês Anterior' =
+			VAR MesCompleto =
+			    HASONEVALUE(dim_calendario[ano_mes])
+			        && COUNTROWS(VALUES(dim_calendario[data]))
+			            = DAY(EOMONTH(MAX(dim_calendario[data]), 0))
+			RETURN
+			    IF(
+			        MesCompleto && NOT ISBLANK([Receita Líquida]),
+			        CALCULATE(
+			            [Receita Líquida],
+			            DATEADD(dim_calendario[data], -1, MONTH)
+			        )
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Crescimento mensal
+		lineageTag: 643f443c-5efc-4be4-8a08-0517cab7a677
+
+	/// Diferença em reais entre o mês atual e o anterior; sem base, retorna vazio.
+	measure 'Variação Receita MoM' =
+			VAR Atual = [Receita Líquida]
+			VAR Anterior = [Receita Mês Anterior]
+			RETURN
+			    IF(
+			        NOT ISBLANK(Atual) && NOT ISBLANK(Anterior),
+			        Atual - Anterior
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Crescimento mensal
+		lineageTag: c20028b1-a0d6-4fba-b633-77fba1e0c491
+
+	/// Crescimento mensal sobre a receita do mês anterior, sem somar taxas.
+	measure 'Crescimento Receita MoM %' = DIVIDE([Variação Receita MoM], [Receita Mês Anterior])
+		formatString: 0.00%
+		displayFolder: Crescimento mensal
+		lineageTag: bd44a3ac-7926-4eff-ac83-efd1d4db5914
+
 	column id_venda
 		dataType: int64
 		formatString: 0
