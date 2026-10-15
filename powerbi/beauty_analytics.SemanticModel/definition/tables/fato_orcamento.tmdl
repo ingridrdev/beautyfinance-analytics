@@ -5,6 +5,7 @@ table fato_orcamento
 	measure 'Receita Orçada' = SUM(fato_orcamento[receita_orcada])
 		formatString: R$ #,0.00
 		displayFolder: Orçamento e realizado
+		lineageTag: 197cc4ac-5ef1-461f-8b22-1573661b5bef
 
 	/// Orçamento limitado ao último mês realizado da base, mantendo os filtros.
 	measure 'Receita Orçada Comparável' =
@@ -21,6 +22,7 @@ table fato_orcamento
 			    )
 		formatString: R$ #,0.00
 		displayFolder: Orçamento e realizado
+		lineageTag: c7be7082-0d02-4206-ab1c-818031495f08
 
 	/// Realizado menos orçamento do mesmo período; sem realizado, retorna vazio.
 	measure 'Variação Receita Orçamento' =
@@ -33,12 +35,13 @@ table fato_orcamento
 			    )
 		formatString: R$ #,0.00
 		displayFolder: Orçamento e realizado
+		lineageTag: 370f023c-3904-491a-b384-197f65d817fe
 
 	/// Diferença relativa ao orçamento comparável, com proteção de divisão por zero.
-	measure 'Variação Receita Orçamento %' =
-			DIVIDE([Variação Receita Orçamento], [Receita Orçada Comparável])
+	measure 'Variação Receita Orçamento %' = DIVIDE([Variação Receita Orçamento], [Receita Orçada Comparável])
 		formatString: 0.00%
 		displayFolder: Orçamento e realizado
+		lineageTag: 20d3fcae-d8d2-4878-a063-058a25b18b9d
 
 	column id_orcamento
 		dataType: int64
