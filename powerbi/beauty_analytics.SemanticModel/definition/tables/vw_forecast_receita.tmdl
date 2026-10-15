@@ -1,6 +1,50 @@
 table vw_forecast_receita
 	lineageTag: 9f96a7f6-6167-4a95-bb91-bceb7bd040cb
 
+	/// Receita prevista para a empresa; filtros de produto, canal ou região não são suportados.
+	measure 'Previsão Receita' =
+			VAR FiltroSemDetalhamento =
+			    ISFILTERED(dim_produtos)
+			        || ISFILTERED(dim_canais)
+			        || ISFILTERED(dim_regioes)
+			RETURN
+			    IF(
+			        NOT FiltroSemDetalhamento,
+			        SUM(vw_forecast_receita[receita_forecast])
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Forecast
+		lineageTag: aff944de-b25e-4060-9710-d522a42e683f
+
+	/// Orçamento dos meses previstos selecionados, sem incluir os meses de realizado.
+	measure 'Orçamento Período Forecast' =
+			IF(
+			    NOT ISBLANK([Previsão Receita]),
+			    SUM(vw_forecast_receita[receita_orcada])
+			)
+		formatString: R$ #,0.00
+		displayFolder: Forecast
+		lineageTag: 1efa8de5-4e51-40fb-a116-d48bf3227828
+
+	/// Previsão menos orçamento dos mesmos meses; sem base, retorna vazio.
+	measure 'Variação Forecast Orçamento' =
+			VAR Previsao = [Previsão Receita]
+			VAR Orcamento = [Orçamento Período Forecast]
+			RETURN
+			    IF(
+			        NOT ISBLANK(Previsao) && NOT ISBLANK(Orcamento),
+			        Previsao - Orcamento
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Forecast
+		lineageTag: 4489e15c-5119-4514-96a9-5a0489d47609
+
+	/// Variação agregada sobre o orçamento, sem média dos percentuais mensais.
+	measure 'Variação Forecast Orçamento %' = DIVIDE([Variação Forecast Orçamento], [Orçamento Período Forecast])
+		formatString: 0.00%
+		displayFolder: Forecast
+		lineageTag: d097d8d9-f0c4-44cf-b3dd-b4805b819b08
+
 	column ano_mes_forecast
 		dataType: string
 		lineageTag: e7995fed-1bef-4242-9b2c-e28406d3c974
