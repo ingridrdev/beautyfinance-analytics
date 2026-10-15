@@ -1,6 +1,45 @@
 table fato_orcamento
 	lineageTag: 51681eca-6b43-4436-8f33-389c3ef3a6cc
 
+	/// Receita planejada para todo o período selecionado, incluindo meses futuros.
+	measure 'Receita Orçada' = SUM(fato_orcamento[receita_orcada])
+		formatString: R$ #,0.00
+		displayFolder: Orçamento e realizado
+
+	/// Orçamento limitado ao último mês realizado da base, mantendo os filtros.
+	measure 'Receita Orçada Comparável' =
+			VAR UltimaDataRealizada =
+			    CALCULATE(MAX(fato_vendas[data_venda]), REMOVEFILTERS())
+			VAR DataCorte = EOMONTH(UltimaDataRealizada, 0)
+			RETURN
+			    IF(
+			        NOT ISBLANK(UltimaDataRealizada),
+			        CALCULATE(
+			            [Receita Orçada],
+			            KEEPFILTERS(dim_calendario[data] <= DataCorte)
+			        )
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Orçamento e realizado
+
+	/// Realizado menos orçamento do mesmo período; sem realizado, retorna vazio.
+	measure 'Variação Receita Orçamento' =
+			VAR Realizado = [Receita Líquida]
+			VAR Orcamento = [Receita Orçada Comparável]
+			RETURN
+			    IF(
+			        NOT ISBLANK(Realizado) && NOT ISBLANK(Orcamento),
+			        Realizado - Orcamento
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Orçamento e realizado
+
+	/// Diferença relativa ao orçamento comparável, com proteção de divisão por zero.
+	measure 'Variação Receita Orçamento %' =
+			DIVIDE([Variação Receita Orçamento], [Receita Orçada Comparável])
+		formatString: 0.00%
+		displayFolder: Orçamento e realizado
+
 	column id_orcamento
 		dataType: int64
 		formatString: 0
