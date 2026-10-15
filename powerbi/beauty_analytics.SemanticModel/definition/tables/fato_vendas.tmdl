@@ -5,21 +5,43 @@ table fato_vendas
 	measure 'Receita Líquida' = SUM(fato_vendas[receita_liquida])
 		formatString: R$ #,0.00
 		displayFolder: Indicadores financeiros
+		lineageTag: a4fbd787-9cd6-48f0-99c7-bf3d3ad9ad14
 
 	/// Custo dos produtos vendidos, respeitando os filtros.
 	measure 'Custo Total' = SUM(fato_vendas[custo_total])
 		formatString: R$ #,0.00
 		displayFolder: Indicadores financeiros
+		lineageTag: 1e20c0db-d563-4f40-8c12-76a38844d7ff
 
 	/// Receita líquida menos custo total; não inclui outras despesas.
 	measure 'Margem Bruta' = [Receita Líquida] - [Custo Total]
 		formatString: R$ #,0.00
 		displayFolder: Indicadores financeiros
+		lineageTag: 1fcf3a36-02ed-4474-9bc9-97332b16585f
 
 	/// Margem dos totais, sem média simples dos percentuais das linhas.
 	measure 'Margem Percentual' = DIVIDE([Margem Bruta], [Receita Líquida])
 		formatString: 0.00%
 		displayFolder: Indicadores financeiros
+		lineageTag: 090df783-bb4b-4b5b-a4b6-6b9f69c6be25
+
+	/// Conta cada pedido uma vez dentro dos filtros selecionados.
+	measure Pedidos = DISTINCTCOUNT(fato_vendas[id_pedido])
+		formatString: #,0
+		displayFolder: Indicadores comerciais
+		lineageTag: 500bf0eb-06bf-4163-af4f-bbde2e06ed60
+
+	/// Soma a quantidade de unidades vendidas, respeitando os filtros.
+	measure 'Unidades Vendidas' = SUM(fato_vendas[quantidade])
+		formatString: #,0
+		displayFolder: Indicadores comerciais
+		lineageTag: a334b825-6e3e-4168-b839-0ba842592f87
+
+	/// Receita líquida do recorte dividida pelos pedidos distintos desse recorte.
+	measure 'Ticket Médio' = DIVIDE([Receita Líquida], [Pedidos])
+		formatString: R$ #,0.00
+		displayFolder: Indicadores comerciais
+		lineageTag: 9836d782-8429-40b2-8f2c-cfd984b0d3ef
 
 	column id_venda
 		dataType: int64

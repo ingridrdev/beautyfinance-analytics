@@ -1,31 +1,41 @@
-// Consulta de validação: usa as quatro medidas permanentes do modelo.
-// Não cria medidas nem altera os dados.
+// Testa as medidas permanentes de pedidos, unidades e ticket médio.
+// Não cria medidas nem altera dados.
 EVALUATE
 UNION(
     ROW(
         "Cenário", "Total realizado",
         "Receita líquida", [Receita Líquida],
-        "Custo total", [Custo Total],
-        "Margem bruta", [Margem Bruta],
-        "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+        "Pedidos", [Pedidos],
+        "Unidades vendidas", [Unidades Vendidas],
+        "Ticket médio", ROUND([Ticket Médio], 2)
     ),
     CALCULATETABLE(
         ROW(
             "Cenário", "Canal 1",
             "Receita líquida", [Receita Líquida],
-            "Custo total", [Custo Total],
-            "Margem bruta", [Margem Bruta],
-            "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", ROUND([Ticket Médio], 2)
         ),
         dim_canais[id_canal] = 1
     ),
     CALCULATETABLE(
         ROW(
+            "Cenário", "Produto 1",
+            "Receita líquida", [Receita Líquida],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", ROUND([Ticket Médio], 2)
+        ),
+        dim_produtos[id_produto] = 1
+    ),
+    CALCULATETABLE(
+        ROW(
             "Cenário", "Agosto 2026",
             "Receita líquida", [Receita Líquida],
-            "Custo total", [Custo Total],
-            "Margem bruta", [Margem Bruta],
-            "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", ROUND([Ticket Médio], 2)
         ),
         dim_calendario[ano_mes] = "2026-08"
     ),
@@ -33,9 +43,9 @@ UNION(
         ROW(
             "Cenário", "Setembro 2026 sem realizado",
             "Receita líquida", [Receita Líquida],
-            "Custo total", [Custo Total],
-            "Margem bruta", [Margem Bruta],
-            "Margem percentual (0 a 100)", ROUND([Margem Percentual] * 100, 2)
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", ROUND([Ticket Médio], 2)
         ),
         dim_calendario[ano_mes] = "2026-09"
     )
