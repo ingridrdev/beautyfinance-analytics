@@ -80,6 +80,43 @@ table fato_vendas
 		displayFolder: Crescimento mensal
 		lineageTag: bd44a3ac-7926-4eff-ac83-efd1d4db5914
 
+	/// Receita do mesmo mês do ano anterior, para um único mês completo com realizado.
+	measure 'Receita Mesmo Mês Ano Anterior' =
+			VAR MesCompleto =
+			    HASONEVALUE(dim_calendario[ano_mes])
+			        && COUNTROWS(VALUES(dim_calendario[data]))
+			            = DAY(EOMONTH(MAX(dim_calendario[data]), 0))
+			RETURN
+			    IF(
+			        MesCompleto && NOT ISBLANK([Receita Líquida]),
+			        CALCULATE(
+			            [Receita Líquida],
+			            DATEADD(dim_calendario[data], -1, YEAR)
+			        )
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Crescimento anual
+		lineageTag: 761d9c14-7f53-493d-b478-ef49ecadce0e
+
+	/// Diferença contra o mesmo mês do ano anterior; sem base, retorna vazio.
+	measure 'Variação Receita YoY' =
+			VAR Atual = [Receita Líquida]
+			VAR Anterior = [Receita Mesmo Mês Ano Anterior]
+			RETURN
+			    IF(
+			        NOT ISBLANK(Atual) && NOT ISBLANK(Anterior),
+			        Atual - Anterior
+			    )
+		formatString: R$ #,0.00
+		displayFolder: Crescimento anual
+		lineageTag: f5f08962-4390-46ce-8d0e-0992056ea539
+
+	/// Crescimento sobre o mesmo mês do ano anterior, com divisão protegida.
+	measure 'Crescimento Receita YoY %' = DIVIDE([Variação Receita YoY], [Receita Mesmo Mês Ano Anterior])
+		formatString: 0.00%
+		displayFolder: Crescimento anual
+		lineageTag: 91eec2c7-43aa-4e13-813b-638868216220
+
 	column id_venda
 		dataType: int64
 		formatString: 0
