@@ -203,6 +203,48 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "dim_produtos.categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_produtos",
+			          "ConceptualProperty": "categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Categoria": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_produtos.nome_produto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_produtos",
+			          "ConceptualProperty": "nome_produto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Produto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

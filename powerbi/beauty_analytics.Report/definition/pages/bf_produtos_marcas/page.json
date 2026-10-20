@@ -1,0 +1,611 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "bf_produtos_marcas",
+  "displayName": "Produtos e Marcas",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bf_realized_cutoff",
+        "displayName": "Realizado até agosto de 2026",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "dim_calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 4,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "c"
+                        }
+                      },
+                      "Property": "data"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "datetime'2026-08-31T00:00:00'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FAF7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "pm_year",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_category_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_product_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_brand_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_chart",
+      "target": "pm_product_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_chart",
+      "target": "pm_product_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_chart",
+      "target": "pm_product_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_month",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_year",
+      "target": "pm_product_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_month",
+      "target": "pm_product_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_brand_filter",
+      "target": "pm_product_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_category_filter",
+      "target": "pm_product_filter",
+      "type": "DataFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "pm_product_filter",
+      "target": "pm_category_filter",
+      "type": "NoFilter"
+    }
+  ]
+}
