@@ -1,0 +1,741 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "bf_orcamento_realizado",
+  "displayName": "Orçamento x Realizado",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bf_realized_cutoff",
+        "displayName": "Realizado até agosto de 2026",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "dim_calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 4,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "c"
+                        }
+                      },
+                      "Property": "data"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "datetime'2026-08-31T00:00:00'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FAF7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ba_year",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_month_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_brand_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_category_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_comparison",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_comparison",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_comparison",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month_variance",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_month",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_year",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_month",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_brand_filter",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_category_filter",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_channel_filter",
+      "target": "ba_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_category_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ba_region_filter",
+      "target": "ba_channel_filter",
+      "type": "NoFilter"
+    }
+  ]
+}

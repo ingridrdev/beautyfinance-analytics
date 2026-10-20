@@ -3,7 +3,8 @@
   "pageOrder": [
     "872e11e20f82508151af",
     "bf_produtos_marcas",
-    "bf_canais_regioes"
+    "bf_canais_regioes",
+    "bf_orcamento_realizado"
   ],
-  "activePageName": "bf_canais_regioes"
+  "activePageName": "bf_orcamento_realizado"
 }
