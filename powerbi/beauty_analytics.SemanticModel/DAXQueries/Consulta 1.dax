@@ -1,90 +1,89 @@
-// Compara metas e realizado; inclui mes abaixo da meta e futuro sem realizado.
+// Valida a pagina Forecast sem alterar medidas ou dados.
 EVALUATE
 UNION(
     CALCULATETABLE(
-        ROW("Cenário", "Jan-ago 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
+        ROW("Cenário", "Total forecast",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
         REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31))
+        TREATAS({2026}, dim_calendario[ano])
     ),
     CALCULATETABLE(
-        ROW("Cenário", "Supermercados 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
+        ROW("Cenário", "2026-09",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
         REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
-        TREATAS({4}, dim_canais[id_canal])
+        TREATAS({"2026-09"}, dim_calendario[ano_mes])
     ),
     CALCULATETABLE(
-        ROW("Cenário", "Agosto 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
+        ROW("Cenário", "2026-10",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
         REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 8, 1), DATE(2026, 8, 31))
+        TREATAS({"2026-10"}, dim_calendario[ano_mes])
     ),
     CALCULATETABLE(
-        ROW("Cenário", "Marca Lumera 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
+        ROW("Cenário", "2026-11",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
         REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
+        TREATAS({"2026-11"}, dim_calendario[ano_mes])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "2026-12",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
+        REMOVEFILTERS(),
+        TREATAS({"2026-12"}, dim_calendario[ano_mes])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "Agosto sem forecast",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
+        REMOVEFILTERS(),
+        TREATAS({"2026-08"}, dim_calendario[ano_mes])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "Marca sem detalhamento",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
+        REMOVEFILTERS(),
+        TREATAS({2026}, dim_calendario[ano]),
         TREATAS({"Lumera"}, dim_produtos[marca])
     ),
     CALCULATETABLE(
-        ROW("Cenário", "Categoria Pele 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
+        ROW("Cenário", "Canal sem detalhamento",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
         REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
-        TREATAS({"Cuidados com a Pele"}, dim_produtos[categoria])
+        TREATAS({2026}, dim_calendario[ano]),
+        TREATAS({1}, dim_canais[id_canal])
     ),
     CALCULATETABLE(
-        ROW("Cenário", "E-commerce Sudeste 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
+        ROW("Cenário", "Região sem detalhamento",
+            "Receita prevista", [Previsão Receita],
+            "Orçamento período forecast", [Orçamento Período Forecast],
+            "Variação forecast", [Variação Forecast Orçamento],
+            "Variação percentual (0 a 100)", [Variação Forecast Orçamento %] * 100),
         REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
-        TREATAS({1}, dim_canais[id_canal]),
+        TREATAS({2026}, dim_calendario[ano]),
         TREATAS({4}, dim_regioes[id_regiao])
-    ),
-    CALCULATETABLE(
-        ROW("Cenário", "Setembro 2026 sem realizado",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
-        REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 9, 1), DATE(2026, 9, 30))
-    ),
-    CALCULATETABLE(
-        ROW("Cenário", "Agosto e setembro 2026",
-            "Receita realizada", [Receita Líquida],
-            "Orçamento selecionado", [Receita Orçada],
-            "Orçamento comparável", [Receita Orçada Comparável],
-            "Variação receita", [Variação Receita Orçamento],
-            "Variação percentual (0 a 100)", [Variação Receita Orçamento %] * 100),
-        REMOVEFILTERS(),
-        DATESBETWEEN(dim_calendario[data], DATE(2026, 8, 1), DATE(2026, 9, 30))
     )
 )
 ORDER BY [Cenário]

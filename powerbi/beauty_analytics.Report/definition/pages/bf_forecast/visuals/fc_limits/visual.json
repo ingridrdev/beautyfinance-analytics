@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "fc_limits",
+  "position": {
+    "x": 972,
+    "y": 848,
+    "z": 13,
+    "height": 184,
+    "width": 900,
+    "tabOrder": 13
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Como interpretar",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "color": "#766b70"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Diferença = previsão − orçamento dos mesmos meses.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "color": "#766b70"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A estimativa pressupõe continuidade do crescimento recente.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "color": "#766b70"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Não há intervalo de incerteza nem projeção de custos ou margens.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "15pt",
+                      "color": "#766b70"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Como interpretar\nDiferença = previsão − orçamento dos mesmos meses.\nA estimativa pressupõe continuidade do crescimento recente.\nNão há intervalo de incerteza nem projeção de custos ou margens.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

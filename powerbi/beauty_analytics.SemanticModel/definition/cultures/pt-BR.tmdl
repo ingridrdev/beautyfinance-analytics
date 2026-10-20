@@ -54,6 +54,26 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Mês previsto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Meses previstos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -236,6 +256,48 @@ cultureInfo pt-BR
 			      "Terms": [
 			        {
 			          "Produto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "vw_forecast_receita.previsão_receita": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "vw_forecast_receita",
+			          "ConceptualProperty": "Previsão Receita"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Previsão": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "vw_forecast_receita.orçamento_período_forecast": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "vw_forecast_receita",
+			          "ConceptualProperty": "Orçamento Período Forecast"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Orçamento": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

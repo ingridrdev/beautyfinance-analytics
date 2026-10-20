@@ -4,7 +4,8 @@
     "872e11e20f82508151af",
     "bf_produtos_marcas",
     "bf_canais_regioes",
-    "bf_orcamento_realizado"
+    "bf_orcamento_realizado",
+    "bf_forecast"
   ],
-  "activePageName": "bf_orcamento_realizado"
+  "activePageName": "bf_forecast"
 }

@@ -1,0 +1,205 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "bf_forecast",
+  "displayName": "Forecast",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fc_period",
+        "displayName": "Previsão: setembro a dezembro de 2026",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "dim_calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "And": {
+                  "Left": {
+                    "Comparison": {
+                      "ComparisonKind": 2,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "c"
+                            }
+                          },
+                          "Property": "data"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "datetime'2026-09-01T00:00:00'"
+                        }
+                      }
+                    }
+                  },
+                  "Right": {
+                    "Comparison": {
+                      "ComparisonKind": 4,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "c"
+                            }
+                          },
+                          "Property": "data"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "datetime'2026-12-31T00:00:00'"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FAF7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "fc_month",
+      "target": "fc_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month",
+      "target": "fc_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month",
+      "target": "fc_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month",
+      "target": "fc_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month",
+      "target": "fc_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month",
+      "target": "fc_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_comparison",
+      "target": "fc_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_comparison",
+      "target": "fc_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_comparison",
+      "target": "fc_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_comparison",
+      "target": "fc_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_comparison",
+      "target": "fc_month_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month_variance",
+      "target": "fc_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month_variance",
+      "target": "fc_budget",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month_variance",
+      "target": "fc_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month_variance",
+      "target": "fc_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_month_variance",
+      "target": "fc_comparison",
+      "type": "DataFilter"
+    },
+    {
+      "source": "fc_comparison",
+      "target": "fc_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fc_month_variance",
+      "target": "fc_month",
+      "type": "NoFilter"
+    }
+  ]
+}
