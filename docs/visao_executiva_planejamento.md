@@ -1,6 +1,8 @@
 # Planejamento da página Visão Executiva
 
-Data: 15/10/2026. Estado: proposta para revisão, sem visuais implementados.
+Data: 15/10/2026. Estado: plano aprovado pela usuária e primeira versão
+implementada. Página e filtros de mês/canal conferidos em 20/10/2026;
+ver visao_executiva_powerbi.md para evidências e limites da validação.
 
 ## Objetivo
 
@@ -10,7 +12,8 @@ como a empresa está, como evoluiu nos meses e onde a receita se concentra?
 
 O projeto já possui as medidas necessárias para esta proposta. Nenhuma
 medida adicional será criada nesta tarefa. O dashboard ainda não foi
-construído: os elementos abaixo são decisões de planejamento.
+construído quando este plano foi escrito. Os elementos abaixo registram
+as decisões que orientaram a primeira versão da página.
 
 ## Período e filtros
 
@@ -144,14 +147,15 @@ precisam de conferência no Desktop quando a página for construída.
 8. Limpar filtros e confirmar retorno ao estado inicial ou ao período escolhido.
 9. Conferir nomes, moedas, percentuais e legibilidade na tela inteira.
 
-Esses testes da página ainda não foram executados: os visuais não existem.
-Nesta etapa foram conferidos apenas referências numéricas, medidas e campos
-necessários, tamanho disponível e limites do modelo.
+Os testes da página no Desktop ainda não foram executados. A primeira versão
+dos visuais está implementada e passou na validação local de schemas,
+referências e geometria, conforme visao_executiva_powerbi.md.
 
 ## Próximas ações
 
-A usuária revisa esta proposta. Não precisa abrir o Power BI nem executar
-SQL no Supabase para revisar o planejamento.
+A proposta foi aprovada. A próxima ação é reabrir o Power BI, atualizar e
+conferir a primeira versão conforme visao_executiva_powerbi.md.
+Não é necessário executar SQL no Supabase.
 
 Para registrar apenas o plano: no Source Control, revisar este arquivo,
 prepará-lo pelo +, usar `docs: plan executive overview page`, clicar em

@@ -1,8 +1,601 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "872e11e20f82508151af",
-  "displayName": "Página 1",
+  "displayName": "Visão Executiva",
   "displayOption": "FitToPage",
   "height": 1080,
-  "width": 1920
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bf_realized_cutoff",
+        "displayName": "Realizado até agosto de 2026",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "dim_calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 4,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "c"
+                        }
+                      },
+                      "Property": "data"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "datetime'2026-08-31T00:00:00'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FAF7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_brand_filter",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_channel",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_cost",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_budget_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_margin_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_region_chart",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_budget_variance",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_region",
+      "target": "bf_budget_variance_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_channel",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_budget_chart",
+      "target": "bf_region",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_channel",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_margin_chart",
+      "target": "bf_region",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_channel",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_region_chart",
+      "target": "bf_region",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf_year",
+      "target": "bf_month",
+      "type": "DataFilter"
+    },
+    {
+      "source": "bf_month",
+      "target": "bf_year",
+      "type": "NoFilter"
+    }
+  ]
 }
