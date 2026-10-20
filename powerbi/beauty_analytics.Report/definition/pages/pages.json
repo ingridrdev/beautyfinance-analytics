@@ -2,7 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
   "pageOrder": [
     "872e11e20f82508151af",
-    "bf_produtos_marcas"
+    "bf_produtos_marcas",
+    "bf_canais_regioes"
   ],
-  "activePageName": "bf_produtos_marcas"
+  "activePageName": "bf_canais_regioes"
 }

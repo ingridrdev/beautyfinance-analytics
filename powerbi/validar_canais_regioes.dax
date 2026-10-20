@@ -1,0 +1,85 @@
+// Valida canais, regiões e filtros combinados; não cria medidas.
+EVALUATE
+UNION(
+    CALCULATETABLE(
+        ROW("Cenário", "Jan-ago 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual", [Margem Percentual],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", [Ticket Médio]),
+        REMOVEFILTERS(),
+        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31))
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "E-commerce 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual", [Margem Percentual],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", [Ticket Médio]),
+        REMOVEFILTERS(),
+        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
+        TREATAS({1}, dim_canais[id_canal])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "Sudeste 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual", [Margem Percentual],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", [Ticket Médio]),
+        REMOVEFILTERS(),
+        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
+        TREATAS({4}, dim_regioes[id_regiao])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "E-commerce Sudeste 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual", [Margem Percentual],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", [Ticket Médio]),
+        REMOVEFILTERS(),
+        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
+        TREATAS({1}, dim_canais[id_canal]),
+        TREATAS({4}, dim_regioes[id_regiao])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "Agosto 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual", [Margem Percentual],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", [Ticket Médio]),
+        REMOVEFILTERS(),
+        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
+        TREATAS({"2026-08"}, dim_calendario[ano_mes])
+    ),
+    CALCULATETABLE(
+        ROW("Cenário", "E-commerce Sudeste agosto 2026",
+            "Receita líquida", [Receita Líquida],
+            "Custo total", [Custo Total],
+            "Margem bruta", [Margem Bruta],
+            "Margem percentual", [Margem Percentual],
+            "Pedidos", [Pedidos],
+            "Unidades vendidas", [Unidades Vendidas],
+            "Ticket médio", [Ticket Médio]),
+        REMOVEFILTERS(),
+        DATESBETWEEN(dim_calendario[data], DATE(2026, 1, 1), DATE(2026, 8, 31)),
+        TREATAS({1}, dim_canais[id_canal]),
+        TREATAS({4}, dim_regioes[id_regiao]),
+        TREATAS({"2026-08"}, dim_calendario[ano_mes])
+    )
+)
+ORDER BY [Cenário]

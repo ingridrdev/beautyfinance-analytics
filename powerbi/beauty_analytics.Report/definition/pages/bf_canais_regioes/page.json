@@ -1,0 +1,721 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "bf_canais_regioes",
+  "displayName": "Canais e Regiões",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "bf_realized_cutoff",
+        "displayName": "Realizado até agosto de 2026",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "dim_calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 4,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "c"
+                        }
+                      },
+                      "Property": "data"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "datetime'2026-08-31T00:00:00'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FAF7F5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "cr_year",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_region_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_margin_pct",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_orders",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_units",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_ticket",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_channel_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_region_revenue",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_channel_margin",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_revenue",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_revenue",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_margin",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_margin",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_month",
+      "type": "DataFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_year",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_month",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_brand_filter",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_channel_filter",
+      "target": "cr_region_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_year",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_month",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_brand_filter",
+      "type": "NoFilter"
+    },
+    {
+      "source": "cr_region_filter",
+      "target": "cr_channel_filter",
+      "type": "NoFilter"
+    }
+  ]
+}
