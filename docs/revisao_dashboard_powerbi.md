@@ -119,3 +119,46 @@ linha, pages.json e imagens ficam separados. Não alterar o Supabase.
 
 Mensagem sugerida para o registro da revisão, após concluí-la:
 fix: correct budget variance colors and update dashboard review
+
+## Atualização de 27/10/2026 — interações e histórico
+
+A usuária confirmou no Desktop os testes orientados nas cinco páginas.
+Em Orçamento x Realizado, as capturas mostraram janeiro/2026 selecionado,
+o retorno ao total de 2026 e a seleção de 2025 com os 12 meses em ordem.
+A conferência de 2024 foi confirmada por texto. Visão Executiva e Produtos
+e Marcas: confirmação textual de seleção de barras, limpeza e anos 2025/2024.
+Canais e Regiões: confirmação textual de cliques por canal/região, limpeza
+e anos históricos. Forecast: confirmação textual do filtro de setembro,
+retorno aos quatro meses, clique mensal e total de 317.686,24, com diferença
+de -21.648,49 (-6,38%). Não foram recebidas capturas desses últimos testes
+nem novas saídas DAX; a evidência é a confirmação da usuária.
+
+A revisão anterior foi registrada e enviada no commit 4c2d085.
+Os itens de interações e histórico acima deixam de ser pendentes nos cenários
+orientados. Próximo passo: melhorar a legibilidade dos subtítulos automáticos
+longos. Em 27/10, o processo PBIDesktop ainda estava aberto; salvar e fechar
+normalmente antes de editar os arquivos do relatório. Não foi fechado pelo agente.
+Esta atualização documental ainda não foi registrada em novo commit.
+
+## Ajuste de legibilidade em 27/10/2026
+
+Após confirmação do fechamento e consulta sem processo PBIDesktop, os 16
+gráficos das cinco páginas receberam visualContainerObjects.subTitle.show=false.
+O tema Fluent2 habilitava subtítulos automáticos, exibindo nomes extensos de
+campos, inclusive tooltips. Os títulos descritivos foram preservados.
+Comparação estrutural em memória verificou que a inserção só adicionou essa
+propriedade; todos os JSONs das páginas foram lidos e os 16 valores conferidos.
+Não houve alteração de consultas, medidas, relações, títulos ou cores pelo
+ajuste. Alterações geradas pelo Desktop antes desta edição foram preservadas.
+Próximo passo: reabrir o PBIP e conferir a renderização nas cinco páginas.
+Sem nova validação de schema ou renderização nesta etapa; sem commit/push.
+
+### Conferência visual após salvar
+
+A captura de Orçamento x Realizado confirmou os quatro gráficos sem os
+subtítulos automáticos, com títulos, valores e cores preservados. A usuária
+informou que salvou e fechou; a consulta de processos confirmou o fechamento.
+Os 16 gráficos preservam subTitle.show=false após salvar. Não foram recebidas
+capturas das outras quatro páginas para este ajuste visual.
+O registro desta etapa inclui apenas a propriedade dos subtítulos e este
+documento; demais alterações do Desktop permanecem separadas.
