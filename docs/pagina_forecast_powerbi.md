@@ -6,7 +6,8 @@ os valores mensais, os textos e a abertura da página. Foi identificado um
 ajuste visual nas barras de diferença; a nova captura confirmou as quatro
 barras vermelhas, com valores preservados. A usuária salvou e fechou o Desktop;
 a revisão confirmou vermelho preservado, meses sem seleção e testes iguais.
-A etapa aguarda autorização para registro no GitHub.
+Registrada e enviada ao GitHub no commit 99e04a7. Para a revisão das cinco
+páginas, consultar docs/revisao_dashboard_powerbi.md.
 
 ## Conteúdo e limites
 
@@ -118,6 +119,6 @@ e não incluir automaticamente no commit do Forecast.
 Nenhuma ação necessária no Supabase: a view já existe e não foi alterada.
 Após validar, salvar e fechar antes da revisão para registro no GitHub.
 Mensagem sugerida: feat: add revenue forecast analysis page
-Nenhum commit/push feito nesta etapa.
+Registro original concluído no commit 99e04a7.
 
 Referência: [PBIR — Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report).

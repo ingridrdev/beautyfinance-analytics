@@ -2,7 +2,8 @@
 
 Implementada em 20/10/2026. A usuária confirmou que os testes solicitados
 estavam corretos e depois salvou e fechou o Power BI. Validação local
-concluída; arquivos aguardam revisão e registro no GitHub.
+concluída. Registrada e enviada ao GitHub no commit 906f613.
+Para a revisão das cinco páginas, consultar docs/revisao_dashboard_powerbi.md.
 
 ## Página e regras
 
@@ -58,8 +59,13 @@ a página inicial, Supermercados abaixo da meta, Lumera acima da meta e
 executar a consulta de oito cenários. Essa confirmação foi registrada sem
 receber captura da página nem os resultados DAX completos nesta etapa.
 Os valores da tabela abaixo são referências calculadas dos CSVs, não uma
-transcrição de saída do Desktop. A aparência e as cores não foram inspecionadas
-diretamente; os cliques nas barras também não foram apresentados.
+transcrição de saída do Desktop. Na revisão geral de 20/10/2026, a captura
+com Supermercados confirmou os quatro cartões, mas mostrou barras negativas
+azuis. Com o Desktop fechado, foi corrigido o seletor da regra para aplicar
+cor por mês: positivo verde, negativo vermelho e zero cinza. Apenas a
+formatação mudou; duas novas capturas confirmaram barras negativas vermelhas
+em Supermercados e positivas verdes com todos os canais. Os cliques nas
+barras ainda não foram apresentados. Ver docs/revisao_dashboard_powerbi.md.
 
 ## Conferência no Desktop
 
@@ -93,7 +99,7 @@ Documento local de progresso segue ignorado. .gitignore permanece separado.
 Revisar eventuais arquivos adicionais gerados pelo Desktop ao salvar.
 
 Nenhuma ação necessária no Supabase. Validar, salvar e fechar antes da revisão
-para registro no GitHub. Nenhum commit/push foi feito nesta etapa.
+para registro no GitHub. Registro original concluído no commit 906f613.
 Mensagem sugerida: feat: add budget versus actual analysis page
 
 Referência: [PBIR — Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report).

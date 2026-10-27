@@ -4,7 +4,8 @@ Implementada e conferida no Power BI Desktop em 20/10/2026. A captura
 confirmou a abertura, os seis cartões iniciais e os rankings. A usuária
 confirmou os filtros de Produto 1 e Produto 1 em agosto/2026 e apresentou
 os seis cenários DAX: todos coincidiram com as referências abaixo.
-Salvou e fechou o Desktop; arquivos aguardam revisão e registro no GitHub.
+Salvou e fechou o Desktop. Registrada e enviada ao GitHub no commit 96f8942.
+Para a revisão das cinco páginas, consultar docs/revisao_dashboard_powerbi.md.
 
 ## Conteúdo
 

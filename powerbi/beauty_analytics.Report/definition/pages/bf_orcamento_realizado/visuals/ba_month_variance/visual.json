@@ -217,7 +217,7 @@
                         {
                           "Condition": {
                             "Comparison": {
-                              "ComparisonKind": 2,
+                              "ComparisonKind": 1,
                               "Left": {
                                 "Measure": {
                                   "Expression": {
@@ -240,11 +240,65 @@
                               "Value": "'#1B6B50'"
                             }
                           }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 3,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "fato_orcamento"
+                                    }
+                                  },
+                                  "Property": "Variação Receita Orçamento %"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#B13C45'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "fato_orcamento"
+                                    }
+                                  },
+                                  "Property": "Variação Receita Orçamento %"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#766B70'"
+                            }
+                          }
                         }
                       ],
                       "DefaultValue": {
                         "Literal": {
-                          "Value": "'#B13C45'"
+                          "Value": "'#766B70'"
                         }
                       }
                     }
@@ -254,7 +308,13 @@
             }
           },
           "selector": {
-            "metadata": "fato_orcamento.Variação Receita Orçamento %"
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
           }
         }
       ],

@@ -6,6 +6,9 @@ A usuária confirmou os testes de agosto/2026 e E-commerce em agosto/2026,
 salvou e fechou o Power BI. O resultado da consulta DAX de três linhas e os
 demais testes de interação abaixo não foram apresentados nesta revisão.
 
+Registrada e enviada ao GitHub no commit ebba3dc. Para o estado da revisão
+das cinco páginas, consultar docs/revisao_dashboard_powerbi.md.
+
 ## O que foi construído
 
 A antiga Página 1 foi renomeada para Visão Executiva. O tamanho de

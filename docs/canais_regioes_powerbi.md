@@ -4,7 +4,8 @@ Implementada e conferida no Power BI Desktop em 20/10/2026. As capturas
 confirmaram a página inicial e os filtros combinados E-commerce + Sudeste.
 Os seis cenários DAX coincidiram com as referências de receita, custo,
 margem, percentual, pedidos, unidades e ticket médio. A usuária salvou e
-fechou o Desktop. Arquivos aguardam revisão e registro no GitHub.
+fechou o Desktop. Registrada e enviada ao GitHub no commit 58ac9b8.
+Para a revisão das cinco páginas, consultar docs/revisao_dashboard_powerbi.md.
 
 ## Conteúdo e regras
 
@@ -81,6 +82,7 @@ O documento local de progresso continua ignorado; .gitignore permanece separado.
 Nenhuma ação necessária no Supabase. Após conferir no Desktop, salvar,
 fechar e revisar os arquivos antes de registrar no GitHub.
 Mensagem sugerida: feat: add channels and regions analysis page
-Não foi feito commit ou push; autorizações anteriores eram específicas.
+Registro original concluído no commit 58ac9b8. Novos registros exigem
+autorização específica da usuária.
 
 Referência: [PBIR — Microsoft Learn](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report).

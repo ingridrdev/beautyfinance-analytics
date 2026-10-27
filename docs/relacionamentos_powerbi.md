@@ -1,5 +1,11 @@
 # Relacionamentos do modelo Power BI
 
+Atualizado em 20/10/2026. As nove relações foram conferidas no Desktop e
+os 13 resultados da consulta original coincidiram com as referências.
+O calendário, as medidas e as cinco páginas foram implementados depois.
+Este guia descreve o modelo atual; não é necessário recriar as relações
+ou refazer a validação original apenas para continuar o projeto.
+
 ## O que foi configurado
 
 Nove relacionamentos ativos, com filtro em uma direção. Cada código ou
@@ -23,8 +29,14 @@ em dim_canais filtra suas vendas e seu orçamento. Vendas e orçamento não
 foram ligados diretamente, evitando caminhos adicionais de filtro.
 
 O forecast só tem relação com o calendário, pois não é dividido por
-produto, canal ou região. Esses filtros não alteram a previsão total.
-Isso precisa ficar claro na futura página de forecast.
+produto, canal ou região. A relação não transmite esses filtros ao forecast.
+Para evitar exibir o total da empresa como se fosse uma previsão detalhada,
+as quatro medidas de forecast retornam vazio se houver filtro direto em
+dim_produtos, dim_canais ou dim_regioes. Isso inclui marca e categoria.
+Os testes DAX confirmaram os retornos vazios para marca, canal e região.
+A página Forecast já está construída e oferece somente o filtro mensal.
+Usar suas medidas nos visuais; a proteção não se aplica a somas diretas
+das colunas de previsão.
 
 Fonte técnica: [Relacionamentos no modelo tabular](https://learn.microsoft.com/en-us/analysis-services/tmsl/relationships-object-tmsl).
 
@@ -47,12 +59,22 @@ do orçamento ou da previsão. Não há rateio diário nesta etapa.
 - Calendário com 1.096 datas consecutivas e cobertura dos quatro meses previstos.
 - Totais e recortes dos CSVs calculados com Decimal para referência.
 
-Esses testes não executam o motor do Power BI. A leitura dos arquivos TMDL,
-a consulta M e os filtros DAX ainda devem ser confirmados no Desktop.
-Não foram criadas medidas financeiras nesta etapa. A marcação formal da
-tabela de datas e medidas de tempo será tratada na etapa correspondente.
+Os testes locais não executam o motor do Power BI. Depois deles, a usuária
+apresentou no Desktop as nove relações ativas e os 13 resultados DAX abaixo;
+todos coincidiram com as referências. Também confirmou a carga das sete
+tabelas. O teste foi preservado em powerbi/validar_relacionamentos.dax.
 
-## Conferir no Power BI Desktop
+O calendário já foi configurado como tabela de datas, com data como chave
+e mes_nome ordenado por mes_numero. O teste do Desktop confirmou 1.096
+datas distintas e contínuas, 36 meses e o dia bissexto de 2024. As medidas
+mensais e anuais usam esse calendário; consultar os guias específicos.
+O modelo atual possui 21 medidas. Nenhuma relação foi alterada nesta atualização.
+
+## Como repetir a conferência, se o modelo mudar
+
+O procedimento abaixo é uma referência para mudanças futuras. A Consulta 1
+salva é usada para o teste da tarefa atual; não pressupor que ela ainda
+contenha o teste de relacionamentos.
 
 1. Abra beauty_analytics.pbip e clique em **Atualizar**.
 2. Na **Exibição de modelo** (ícone de tabelas ligadas à esquerda), confira
@@ -65,7 +87,7 @@ tabela de datas e medidas de tempo será tratada na etapa correspondente.
 6. Compare o resultado com a tabela abaixo. Envie erro ou diferença antes
    de registrar esta etapa como validada. Se estiver certo, salve o projeto.
 
-Resultados esperados, não comandos:
+Referências coincidentes com a saída original do Desktop, não comandos:
 
 | Resultado da consulta | Valor |
 |---|---:|
@@ -88,24 +110,21 @@ orçamento até dezembro de 2026. Não compará-las com o orçamento limitado
 ao realizado até agosto. O teste de cada filtro usa a dimensão, para
 verificar que a relação realmente transmite o filtro.
 
-## Supabase e GitHub
+## Estado atual e registro
 
-Não é necessário executar SQL no Supabase para esta tarefa.
+As cinco páginas são Visão Executiva, Produtos e Marcas, Canais e Regiões,
+Orçamento x Realizado e Forecast. As quatro primeiras limitam o realizado
+até agosto/2026; Forecast usa setembro-dezembro/2026. As tabelas de fatos
+compartilham dimensões, com cada gráfico usando medidas do período correto.
 
-Depois da conferência no Power BI, revise as diferenças no Source Control
-do VS Code. Prepare somente os arquivos desta tarefa pelo botão +:
+Consultar docs/revisao_dashboard_powerbi.md para a revisão em andamento,
+evidências e limitações. Conferir arquivos não substitui testar interações.
 
-- relationships.tmdl.
-- tables/vw_forecast_receita.tmdl.
-- powerbi/validar_relacionamentos.dax.
-- docs/relacionamentos_powerbi.md.
-- Eventuais arquivos de definição que o Desktop atualizar ao salvar,
-  depois de revisar seu conteúdo.
+Nenhuma ação necessária no Supabase. A atualização deste guia é documental,
+sem mudança em relationships.tmdl, medidas ou banco. Não recriar relações
+nem repetir o commit original para registrar este texto.
 
-Não incluir automaticamente outras pendências. O documento local
-continuidade_projeto.md permanece ignorado. Não incluir cache.abf ou
-localSettings.json.
-
-Mensagem sugerida: `feat: define Power BI model relationships`.
-Clique em Commit e depois no menu ... → Push. Aguarde a revisão antes
-de avançar para medidas.
+Após revisar a tarefa atual, incluir este guia junto dos arquivos efetivamente
+alterados na revisão. Não incluir outras pendências automaticamente.
+continuidade_projeto.md permanece local e ignorado. cache.abf e
+localSettings.json também não devem entrar no GitHub.
