@@ -162,3 +162,17 @@ Os 16 gráficos preservam subTitle.show=false após salvar. Não foram recebidas
 capturas das outras quatro páginas para este ajuste visual.
 O registro desta etapa inclui apenas a propriedade dos subtítulos e este
 documento; demais alterações do Desktop permanecem separadas.
+
+## Capturas atuais conferidas em 27/10/2026
+
+As cinco imagens de docs/images foram inspecionadas visualmente: Visão
+Executiva, Produtos e Marcas, Canais e Regiões, Orçamento x Realizado e Forecast.
+As quatro páginas de realizado mostram Ano 2026 e demais filtros em Todos,
+sem seleção de barras visível. Indicadores de 2026 coincidem com os valores
+já documentados. Forecast mostra os quatro meses, filtro Todos, previsão de
+317.686,24, orçamento de 339.334,73 e diferença de -21.648,49 (-6,38%).
+Os gráficos estão sem os subtítulos automáticos longos. A captura final do
+Forecast também está sem a borda de seleção do título. Essas imagens
+complementam a conferência visual das cinco páginas após o ajuste; não
+representam uma nova execução das consultas DAX. README atualizado com a
+galeria completa, substituindo a indicação de captura histórica.

@@ -1,4 +1,4 @@
-﻿# BeautyFinance Analytics
+# BeautyFinance Analytics
 
 Análise financeira e comercial de uma empresa fictícia de cosméticos, com dados tratados em Python, consultas em PostgreSQL/Supabase e dashboard em Power BI.
 
@@ -33,9 +33,27 @@ O histórico disponível vai de janeiro de 2024 a agosto de 2026. O orçamento c
 | Orçamento x Realizado | Metas, diferenças em reais e percentuais por mês, marca e categoria |
 | Forecast | Previsão mensal de receita e comparação com o orçamento futuro |
 
+### Visão Executiva
+
+![Visão Executiva: indicadores e desempenho de janeiro a agosto de 2026](docs/images/visao-executiva.png)
+
+### Produtos e Marcas
+
+![Produtos e Marcas: receita por produto e marca e margem por categoria](docs/images/produtos-marcas.png)
+
+### Canais e Regiões
+
+![Canais e Regiões: receita e margem por canal e região](docs/images/canais-regioes.png)
+
+### Orçamento x Realizado
+
+![Orçamento x Realizado: comparação mensal, por marca e por categoria](docs/images/orcamento-realizado.png)
+
+### Forecast
+
 ![Forecast de receita de setembro a dezembro de 2026](docs/images/forecast-receita.png)
 
-*Captura do Desktop anterior à melhoria que ocultou os subtítulos automáticos dos gráficos. Os valores exibidos correspondem ao cenário documentado.*
+*Capturas atuais do Desktop, após a melhoria de legibilidade dos gráficos. As páginas de realizado mostram 2026, com os demais filtros em Todos; o Forecast mostra os quatro meses previstos.*
 
 ## Forecast: método e limites
 
@@ -118,7 +136,7 @@ As cinco páginas estão implementadas. Os testes de filtros, cliques e anos his
 
 A base tem 22.734 linhas de vendas, 15.000 pedidos distintos no histórico e 9.828 linhas de orçamento. A validação local de arquivos não substitui a execução do modelo no Desktop. O [relatório de revisão](docs/revisao_dashboard_powerbi.md) distingue capturas, resultados apresentados e confirmações textuais.
 
-Próximas melhorias: capturas atualizadas das cinco páginas, análises complementares em Excel e apresentação final do portfólio.
+As cinco capturas atuais do dashboard estão incluídas acima. Próximas melhorias: análises complementares em Excel e apresentação final do portfólio.
 
 ## Documentação
 
