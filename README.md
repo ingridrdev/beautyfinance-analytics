@@ -82,7 +82,7 @@ Power BI: importação → modelo dimensional → medidas DAX → 5 páginas
 
 O modelo importa sete objetos: quatro dimensões (calendário, produtos, canais e regiões), duas tabelas de fatos (vendas e orçamento) e a view mensal de forecast. São nove relacionamentos ativos e 21 medidas. Vendas e orçamento compartilham dimensões; o forecast se relaciona somente ao calendário.
 
-Git e GitHub registram as etapas de desenvolvimento. Análises complementares em Excel permanecem planejadas.
+Git e GitHub registram as etapas de desenvolvimento. A [análise complementar em Excel](excel/beautyfinance_analise.xlsx) apresenta resumo financeiro, evolução mensal, canais e forecast, com fórmulas e três gráficos. Consulte o [guia da planilha](docs/analise_excel.md) para reprodução e conferência.
 
 ## Como explorar o projeto
 
@@ -136,7 +136,7 @@ As cinco páginas estão implementadas. Os testes de filtros, cliques e anos his
 
 A base tem 22.734 linhas de vendas, 15.000 pedidos distintos no histórico e 9.828 linhas de orçamento. A validação local de arquivos não substitui a execução do modelo no Desktop. O [relatório de revisão](docs/revisao_dashboard_powerbi.md) distingue capturas, resultados apresentados e confirmações textuais.
 
-As cinco capturas atuais do dashboard estão incluídas acima. Próximas melhorias: análises complementares em Excel e apresentação final do portfólio.
+As cinco capturas atuais do dashboard estão incluídas acima. A análise complementar em Excel foi recalculada e conferida: Resumo 2026 por captura, Canais 2026 e Forecast por confirmação textual da usuária. A versão atual reúne as entregas de Python, SQL, Power BI e Excel. A apresentação do projeto tem um [texto de apoio](docs/apresentacao_portfolio.md).
 
 ## Documentação
 

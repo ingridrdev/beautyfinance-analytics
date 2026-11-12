@@ -41,8 +41,11 @@ tabelas, views e análises em PostgreSQL/Supabase; modelo dimensional e
 cinco páginas no Power BI. O README apresenta resultados, capturas das
 cinco páginas, instruções de reprodução e limites do forecast.
 
-Análises complementares em Excel ficam como melhoria futura. Cloudflare
-Pages não faz parte da entrega atual. As evidências e os limites da
+Análise complementar em Excel preparada em excel/beautyfinance_analise.xlsx,
+com fórmulas e gráficos recalculados no Excel e conferência visual concluída
+pela usuária em 12/11/2026. A versão atual conclui as entregas previstas de
+Python, SQL, Power BI e Excel.
+Cloudflare Pages não faz parte da entrega atual. As evidências e os limites da
 validação estão em [revisao_dashboard_powerbi.md](revisao_dashboard_powerbi.md).
 
 ## Observação
