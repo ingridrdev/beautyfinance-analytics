@@ -1,5 +1,29 @@
 # Revisão geral do dashboard
 
+## Conferência para o portfólio em 12/11/2026
+
+As capturas apresentadas nesta sessão confirmaram Orçamento x Realizado
+com Ano 2026 e demais filtros em Todos: receita de R$ 497.957,18,
+orçamento comparável de R$ 479.918,23 e diferença de +R$ 18.038,95
+(+3,76%). Meses em ordem e diferenças positivas em verde.
+
+Forecast apresentou setembro a dezembro de 2026, com filtro Todos:
+previsão de R$ 317.686,24, orçamento de R$ 339.334,73 e diferença de
+-R$ 21.648,49 (-6,38%). Barras negativas vermelhas e textos do método
+e dos limites legíveis. Não foi identificado ajuste necessário nessas
+duas capturas. Não houve nova execução DAX, atualização do banco ou
+repetição dos testes de interação já documentados.
+
+A usuária confirmou o fechamento; a consulta local não encontrou processo
+PBIDesktop. O Git não apresentou alterações pendentes no relatório ou no
+modelo. A definição versionada mantém Forecast como aba ativa; o retorno
+à Visão Executiva como página inicial não foi confirmado nos arquivos.
+
+Planejamento e dicionário foram atualizados para refletir o orçamento de
+2024 a 2026 e a view de forecast existente. O texto de apresentação foi
+preparado em apresentacao_portfolio.md. Excel permanece como melhoria futura.
+Os registros abaixo preservam o histórico das revisões anteriores.
+
 Data: 20/10/2026. Estado: revisão dos arquivos e dos totais concluída;
 correção visual do orçamento confirmada no Desktop. A conferência completa
 de interações e de anos históricos ainda não foi apresentada.
