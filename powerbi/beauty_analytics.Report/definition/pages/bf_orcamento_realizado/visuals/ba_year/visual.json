@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ba_year",
   "position": {
     "x": 48,
@@ -156,7 +156,7 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "c",
+                    "Name": "d",
                     "Entity": "dim_calendario",
                     "Type": 0
                   }
@@ -170,7 +170,7 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "c"
+                                  "Source": "d"
                                 }
                               },
                               "Property": "ano"

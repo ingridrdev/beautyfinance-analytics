@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ba_title",
   "position": {
     "x": 48,
     "y": 50,
     "z": 1,
-    "width": 1350,
     "height": 48,
+    "width": 1350,
     "tabOrder": 1
   },
   "visual": {
@@ -23,11 +23,10 @@
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "28pt",
-                      "color": "#5B2C46"
+                      "color": "#5b2c46"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ba_month_comparison",
   "position": {
     "x": 48,
@@ -30,6 +30,38 @@
               "nativeQueryRef": "ano_mes",
               "active": true,
               "displayName": "Mês"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fato_orcamento"
+                    }
+                  },
+                  "Property": "Variação Receita Orçamento"
+                }
+              },
+              "queryRef": "fato_orcamento.Variação Receita Orçamento",
+              "nativeQueryRef": "Variação Receita Orçamento"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fato_orcamento"
+                    }
+                  },
+                  "Property": "Variação Receita Orçamento %"
+                }
+              },
+              "queryRef": "fato_orcamento.Variação Receita Orçamento %",
+              "nativeQueryRef": "Variação Receita Orçamento %"
             }
           ]
         },
@@ -64,38 +96,6 @@
               "queryRef": "fato_orcamento.Receita Orçada Comparável",
               "nativeQueryRef": "Receita Orçada Comparável",
               "displayName": "Orçamento"
-            }
-          ]
-        },
-        "Tooltips": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fato_orcamento"
-                    }
-                  },
-                  "Property": "Variação Receita Orçamento"
-                }
-              },
-              "queryRef": "fato_orcamento.Variação Receita Orçamento",
-              "nativeQueryRef": "Variação Receita Orçamento"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fato_orcamento"
-                    }
-                  },
-                  "Property": "Variação Receita Orçamento %"
-                }
-              },
-              "queryRef": "fato_orcamento.Variação Receita Orçamento %",
-              "nativeQueryRef": "Variação Receita Orçamento %"
             }
           ]
         }
@@ -508,5 +508,79 @@
         }
       ]
     }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c6e6195ed64a68261d2f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "ano_mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "725b6bba7c8c96f329a2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_vendas"
+              }
+            },
+            "Property": "Receita Líquida"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "efabf2aeb7dc2c669153",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_orcamento"
+              }
+            },
+            "Property": "Receita Orçada Comparável"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "aab51af5ca571280d989",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_orcamento"
+              }
+            },
+            "Property": "Variação Receita Orçamento"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e312fffb14575ed14fdf",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fato_orcamento"
+              }
+            },
+            "Property": "Variação Receita Orçamento %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
